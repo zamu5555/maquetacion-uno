@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Body() {
+function Body({ titulo, texto, botonTexto, ruta }) {
   return (
     <main className="hero-section">
       <div className="hero-content">
-        <h1>El arte de la paciencia</h1>
-        <p>
-          Descubre la serenidad a través del cuidado y diseño de árboles Bonsái.
-          Un espacio para reconectar con la naturaleza.
-        </p>
-        
-        <Link className="btn" to="/booking">
-          Reserva un taller
-        </Link>
+        <h1>{titulo}</h1>
+
+        <p>{texto}</p>
+
+        {botonTexto && ruta && (
+          <Link className="btn" to={ruta}>
+            {botonTexto}
+          </Link>
+        )}
       </div>
 
       <div className="hero-image"></div>

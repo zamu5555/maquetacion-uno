@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 
-function Reservas() {
+function Galeria() {
     return (
         <div>
             <NavBar />
@@ -11,4 +11,4 @@ function Reservas() {
     )
 }
 
-export default Reservas
+export default Galeria

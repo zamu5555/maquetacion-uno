@@ -7,8 +7,13 @@ function Inicio() {
     return (
         <div>
             <NavBar />
-            <Body />
-            <Footer/>
+            <Body
+                titulo="El arte de la paciencia"
+                texto="Descubre la serenidad a través del cuidado y diseño de árboles Bonsái. Un espacio para reconectar con la naturaleza."
+                botonTexto="Reserva un taller"
+                ruta="/reservas"
+            />
+            <Footer />
         </div>
     )
 }
