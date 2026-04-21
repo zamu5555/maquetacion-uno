@@ -8,6 +8,8 @@ function App() {
     <div>
     <Inicio/>
     <Filosofia/>
+    <Galeria/>
+    <Reservas/>
     </div>
   )
 }

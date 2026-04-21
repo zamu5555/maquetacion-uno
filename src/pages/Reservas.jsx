@@ -2,8 +2,20 @@ import React from 'react'
 import NavBar from '../components/NavBar'
 import Body from '../components/Body'
 import Footer from '../components/Footer'
+import React, {useState} from 'react'
 
 function Reservas() {
+
+  const [datos, setDatos] = useState ({
+    nombre : "",
+    correo : "",
+    nivel : "Principiante",
+    mensaje : ""
+  })
+
+
+
+
   return (
     <div>
       <NavBar />
