@@ -210,3 +210,15 @@ footer {
     border-top: 1px solid var(--border-color);
     color: #888;
 }
+.card {
+  background: #eee;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
