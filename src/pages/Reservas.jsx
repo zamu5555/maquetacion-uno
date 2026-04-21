@@ -1,55 +1,97 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from '../components/NavBar'
 import Body from '../components/Body'
 import Footer from '../components/Footer'
-import React, {useState} from 'react'
 
 function Reservas() {
 
-  const [datos, setDatos] = useState ({
-    nombre : "",
-    correo : "",
-    nivel : "Principiante",
-    mensaje : ""
+  const [datos, setDatos] = useState({
+    nombre: '',
+    correo: '',
+    nivel: 'principiante',
+    mensaje: ''
   })
 
+  const ingresoDatos = (e) => {
+    const { name, value } = e.target
+
+    setDatos({
+      ...datos,
+      [name]: value
+    })
+  }
+
+  const enviarDatos = (e) => {
+    e.preventDefault()
+
+    console.log('Datos del formulario:', datos)
 
 
+    localStorage.setItem("reserva", JSON.stringify(datos))
+
+
+    setDatos({
+      nombre: '',
+      correo: '',
+      nivel: 'principiante',
+      mensaje: ''
+    })
+  }
 
   return (
     <div>
       <NavBar />
 
       <Body titulo="Reserva un Taller">
-        
+
         <p>
           Déjanos tus datos y nos pondremos en contacto para agendar tu primera sesión.
         </p>
 
-        <form className="booking-form">
-          
+        <form className="booking-form" onSubmit={enviarDatos}>
+
           <div className="form-group">
-            <label htmlFor="name">Nombre completo</label>
-            <input type="text" id="name" name="name" required placeholder="Ej. Ana Silva" />
+            <label>Nombre completo</label>
+            <input
+              type="text"
+              name="nombre"
+              value={datos.nombre}
+              onChange={ingresoDatos}
+              required
+            />
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" required placeholder="tu@email.com" />
+            <label>Correo electrónico</label>
+            <input
+              type="email"
+              name="correo"
+              value={datos.correo}
+              onChange={ingresoDatos}
+              required
+            />
           </div>
 
           <div className="form-group">
-            <label htmlFor="level">Nivel de experiencia</label>
-            <select id="level" name="level">
-              <option value="beginner">Principiante</option>
-              <option value="intermediate">Intermedio</option>
-              <option value="advanced">Avanzado</option>
+            <label>Nivel de experiencia</label>
+            <select
+              name="nivel"
+              value={datos.nivel}
+              onChange={ingresoDatos}
+            >
+              <option value="principiante">Principiante</option>
+              <option value="intermedio">Intermedio</option>
+              <option value="avanzado">Avanzado</option>
             </select>
           </div>
 
           <div className="form-group">
-            <label htmlFor="message">Mensaje</label>
-            <textarea id="message" name="message" rows="4" />
+            <label>Mensaje</label>
+            <textarea
+              name="mensaje"
+              value={datos.mensaje}
+              onChange={ingresoDatos}
+            />
           </div>
 
           <button type="submit" className="btn btn-block">
