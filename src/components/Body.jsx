@@ -1,19 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Body({ titulo, texto, textos, botonTexto, ruta, style }) {
+function Body({ titulo, texto, textos, botonTexto, ruta, children }) {
   return (
-    <main className="hero-section" style={style}>
-      
+    <main className="hero-section">
       <div className="hero-content">
         <h1>{titulo}</h1>
 
-        {textos
-          ? textos.map((t, index) => <p key={index}>{t}</p>)
-          : <p>{texto}</p>
-        }
+        {/* Si mandas contenido personalizado */}
+        {children ? (
+          children
+        ) : textos ? (
+          textos.map((t, i) => <p key={i}>{t}</p>)
+        ) : (
+          <p>{texto}</p>
+        )}
 
-        
         {botonTexto && ruta && (
           <Link className="btn" to={ruta}>
             {botonTexto}
