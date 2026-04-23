@@ -3,7 +3,9 @@ import React from 'react'
 function Footer() {
   return (
    <footer>
+    
         <p>&copy; 2026 Zenith Bonsai Studio.</p>
+
     </footer>
   )
 }

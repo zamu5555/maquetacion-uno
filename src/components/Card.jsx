@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 function Card({ titulo }) {
   return (
     <div className="card">

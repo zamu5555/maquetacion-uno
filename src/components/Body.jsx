@@ -7,7 +7,6 @@ function Body({ titulo, texto, textos, botonTexto, ruta, children }) {
       <div className="hero-content">
         <h1>{titulo}</h1>
 
-        {/* Si mandas contenido personalizado */}
         {children ? (
           children
         ) : textos ? (
